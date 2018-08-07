@@ -13,14 +13,13 @@ Add `actix-lua` to your `Cargo.toml`:
 actix-lua = "0.2"
 ```
 
-#### Build a Lua Actor
+#### Hello World
 
 ```rust
 extern crate actix_lua;
 use actix_lua::{LuaActorBuilder, LuaMessage};
 
 fn main () {
-    let system = System::new("test");
     let addr = LuaActorBuilder::new()
         .on_handle_with_lua(r#"return ctx.msg + 42"#)
         .build()
